@@ -4,7 +4,7 @@ name: deployment
 on:
   pull_request:
     types: [closed]
-    branches: ["main", "prod"]
+    branches: ["master", "prod"]
 
 jobs:
   deployment:
