@@ -11,8 +11,11 @@ jobs:
   deployment:
     # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    environment: secrets
     steps:
       - uses: actions/checkout@v4
 
       - name: Trigger Deploy Webhook
-        run: 'curl -X POST -H "X-Api-Key: ${{ secrets.WEBHOOK_SECRET }}" https://webhook.francvok.from.hr/hooks/vue-web-template'
+        env:
+          WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
+        run: 'curl -X POST -H "X-Api-Key: ::add-mask::$WEBHOOK_SECRET " https://webhook.francvok.from.hr/hooks/vue-web-template'
