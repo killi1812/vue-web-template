@@ -12,6 +12,7 @@ import PrimeVue from 'primevue/config';
 
 // Types
 import type { App } from 'vue'
+import vuetify from './vuetify';
 
 export function registerPlugins(app: App) {
   app
