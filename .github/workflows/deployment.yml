@@ -1,1 +1,17 @@
 # TODO: write delpoy
+name: deployment
+
+on:
+  pull_request:
+    types: [closed]
+    branches: ["main", "prod"]
+
+jobs:
+  deployment:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trigger Deploy Webhook
+        run: 'curl -X POST -H "X-Api-Key: ${{ secrets.WEBHOOK_SECRET }}" https://webhook.francvok.from.hr/hooks/vue-web-template/deploy'
