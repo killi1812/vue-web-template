@@ -1,9 +1,11 @@
 name: deployment
 
 on:
+  push:
+    branches: ["master"]
   pull_request:
     types: [closed]
-    branches: ["master", "prod"]
+    branches: ["master"]
 
 jobs:
   deployment:
