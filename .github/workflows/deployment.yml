@@ -18,4 +18,4 @@ jobs:
       - name: Trigger Deploy Webhook
         env:
           WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
-        run: 'curl -X POST -H "X-Api-Key: ::add-mask::$WEBHOOK_SECRET " https://webhook.francvok.from.hr/hooks/vue-web-template'
+        run: 'curl -X POST -H "X-Api-Key: ${{ secrets.WEBHOOK_SECRET }} " https://webhook.francvok.from.hr/hooks/vue-web-template'
