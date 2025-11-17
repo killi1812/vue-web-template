@@ -1,0 +1,8 @@
+services:
+  frontend:
+    build: .
+    restart: unless-stopped
+    environment:
+      BACKEND_URL: localhost:8251
+    ports:
+      - "8251:80"

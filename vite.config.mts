@@ -87,6 +87,18 @@ export default defineConfig({
     ],
   },
   server: {
-    port: 3000,
+    port: 8091,
+    allowedHosts: ['.francvok.from.hr'],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8090',
+        changeOrigin: true,
+        secure: false,
+        ws: true,
+      },
+    },
+    hmr: {
+      clientPort: 443,
+    },
   },
 })
